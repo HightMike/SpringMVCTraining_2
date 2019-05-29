@@ -1,3 +1,5 @@
+package ru.borisov;
+
 import org.springframework.cglib.core.Local;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -9,9 +11,10 @@ import java.util.Locale;
 @Controller
 public class MainController {
 
-    @RequestMapping(value = "/", method = RequestMethod.GET)
-    public String home(Locale locale, Model model) {
-        return "index";
+    @RequestMapping(value = "/123", method = RequestMethod.GET)
+    public String home(Model model) {
+        model.addAttribute("thispage");
+        return "home";
     }
 
 }
