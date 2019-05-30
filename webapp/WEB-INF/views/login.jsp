@@ -6,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <html>
 <head>
     <title>Borisov.ru</title>
@@ -13,22 +14,22 @@
 </head>
 <body>
 
-<form method="post" action="" class="login">
+<form:form method="post" commandName="user" action="check-user" class="login">
     <p>
-        <label for="login">Логин:</label>
-        <input type="text" name="login" id="login" value="borisov.com">
+        <form:label path="name">Логин:</form:label>
+        <form:input path="name"/>
     </p>
 
     <p>
-        <label for="password">Пароль:</label>
-        <input type="password" name="password" id="password" value="4815162342">
+        <form:label path="password">Пароль:</form:label>
+        <form:password path="password"/>
     </p>
 
     <p class="login-submit">
         <button type="submit" class="login-button">Войти</button>
     </p>
 
-    <p class="forgot-password"><a href="home.jsp">Забыл пароль?</a></p>
-</form>
+    <p class="forgot-password"><a href="login.jsp">Забыл пароль?</a></p>
+</form:form>
 </body>
 </html>
