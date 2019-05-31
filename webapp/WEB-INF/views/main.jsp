@@ -14,6 +14,7 @@
 
 <p> Hello ${user.name}</p>
 <p> Your password if ${user.password}</p>
+<p> Is this admin? ${user.admin}</p>
 
 
 </body>

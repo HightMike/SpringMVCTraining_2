@@ -25,9 +25,17 @@
         <form:password path="password"/>
     </p>
 
+    <p>
+        <form:label path="admin" > Админ </form:label>
+        <form:checkbox path="admin"/>
+
+    </p>
+
+
     <p class="login-submit">
         <button type="submit" class="login-button">Войти</button>
     </p>
+
 
     <p class="forgot-password"><a href="login.jsp">Забыл пароль?</a></p>
 </form:form>

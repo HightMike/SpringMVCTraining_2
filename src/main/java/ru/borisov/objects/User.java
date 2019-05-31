@@ -3,6 +3,15 @@ package ru.borisov.objects;
 public class User {
     public String name;
     public String password;
+    public Boolean admin;
+
+    public Boolean getAdmin() {
+        return admin;
+    }
+
+    public void setAdmin(Boolean admin) {
+        this.admin = admin;
+    }
 
     public String getName() {
         return name;
