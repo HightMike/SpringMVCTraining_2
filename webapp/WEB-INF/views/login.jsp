@@ -29,6 +29,7 @@
         <form:label path="admin" > Админ </form:label>
         <form:checkbox path="admin"/>
 
+
     </p>
 
 
