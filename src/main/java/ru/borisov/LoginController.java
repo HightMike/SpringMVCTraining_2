@@ -20,10 +20,11 @@ public class LoginController {
 
     @RequestMapping(value = "/check-user", method = RequestMethod.POST) // форма всегда передается в виде post запроса. Любые пост запросы со страницы check-user.
     public ModelAndView checkUser (@ModelAttribute ("user") User user) {
-        ModelAndView modelAndView = new ModelAndView(); // более длинный вариант
-        modelAndView.setViewName("main");
-        modelAndView.addObject("user", user);
-        return modelAndView;
+//        ModelAndView modelAndView = new ModelAndView(); // более длинный вариант
+//        modelAndView.setViewName("main");
+//        modelAndView.addObject("user", user);
+//        return modelAndView;
+        return new ModelAndView("main", "user", user);
     }
 
 
