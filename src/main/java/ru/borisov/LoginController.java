@@ -27,6 +27,10 @@ public class LoginController {
         return new ModelAndView("main", "user", user);
     }
 
+    @RequestMapping(value = "/failed", method = RequestMethod.GET)//RequestMethod.GET - все входящие запросы по этому урлу.
+    public ModelAndView failed() {
+        return new ModelAndView("login-failed", "message", "Login Failed");
+    }
 
 
 }
