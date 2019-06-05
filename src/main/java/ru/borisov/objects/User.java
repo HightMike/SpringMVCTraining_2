@@ -1,8 +1,16 @@
 package ru.borisov.objects;
 
+import javax.validation.constraints.Size;
+
 public class User {
+
+    @Size(min=6, message = "Имя должно быть человеческой длины")
     public String name;
+
+    @Size(min=6, max = 10 , message = "Пароль в диапазоне от 6 до 10 символов")
     public String password;
+
+
     public Boolean admin;
 
     public Boolean getAdmin() {

@@ -1,3 +1,4 @@
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%--
   Created by IntelliJ IDEA.
   User: mike
@@ -6,7 +7,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+
 <html>
 <head>
     <title>Borisov.ru</title>
@@ -18,18 +19,19 @@
     <p>
         <form:label path="name">Логин:</form:label>
         <form:input path="name"/>
+        <form:errors path="name" cssClass="error"/>
     </p>
 
     <p>
         <form:label path="password">Пароль:</form:label>
         <form:password path="password"/>
+        <form:errors path="password" cssClass="error"/>
+
     </p>
 
     <p>
         <form:label path="admin" > Админ </form:label>
         <form:checkbox path="admin"/>
-
-
     </p>
 
 

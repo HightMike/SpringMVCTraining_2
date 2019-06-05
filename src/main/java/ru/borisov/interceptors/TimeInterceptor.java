@@ -21,7 +21,7 @@ public class TimeInterceptor extends HandlerInterceptorAdapter {
     @Override
     public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler, ModelAndView modelAndView) throws Exception {
         long startTime = Long.valueOf(request.getAttribute("startTime").toString());
-        Thread.sleep(2900); // какая-то обработка данных, например обращение к бд.
+        //Thread.sleep(2900); // какая-то обработка данных, например обращение к бд.
         int totalTime = (int) ((System.currentTimeMillis()-startTime)/1000);
         modelAndView.addObject("totalTime:", totalTime);
         LOGGER.info(handler +":post handle method, totalTime passed: "+ totalTime + "sec");
