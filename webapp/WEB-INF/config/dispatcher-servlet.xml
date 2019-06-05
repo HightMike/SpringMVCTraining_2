@@ -30,7 +30,8 @@
     <mvc:interceptors>
         <mvc:interceptor>
             <mvc:mapping path="/*"/>
-            <bean class="ru.borisov.interceptors.CheckUserInterceptor"/>
+            <!--<bean class="ru.borisov.interceptors.CheckUserInterceptor"/>-->
+            <bean class="ru.borisov.interceptors.TimeInterceptor" />
         </mvc:interceptor>
     </mvc:interceptors>
 
