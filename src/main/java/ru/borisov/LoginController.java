@@ -4,9 +4,7 @@ package ru.borisov;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import ru.borisov.objects.User;
 
@@ -36,5 +34,13 @@ public class LoginController {
         return new ModelAndView("login-failed", "message", "Login Failed");
     }
 
+
+    @RequestMapping(value = "/get-json-user", method = RequestMethod.GET, produces = "application/json")
+    @ResponseBody
+    public User getJsonUser(@RequestParam("name") String name) {
+        User user =  new User();
+        user.setName(name);
+        return user;
+    }
 
 }
