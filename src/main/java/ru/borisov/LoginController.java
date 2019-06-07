@@ -1,6 +1,10 @@
 package ru.borisov;
 
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -12,6 +16,8 @@ import javax.validation.Valid;
 
 @Controller
 public class LoginController {
+
+    public static final Logger LOGGER = LoggerFactory.getLogger(LoginController.class);
 
     @RequestMapping(value = "/", method = RequestMethod.GET)//RequestMethod.GET - все входящие запросы по этому урлу.
     public ModelAndView main() {
@@ -41,6 +47,12 @@ public class LoginController {
         User user =  new User();
         user.setName(name);
         return user;
+    }
+
+    @RequestMapping(value = "/put-json-user", method = RequestMethod.POST, consumes = "application/json")
+    public ResponseEntity<String> setJsonUser(@RequestBody User user) {
+        LOGGER.info(user.getName());
+        return new ResponseEntity<String>(HttpStatus.OK);
     }
 
 }
