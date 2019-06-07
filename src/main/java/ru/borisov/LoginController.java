@@ -53,6 +53,6 @@ public class LoginController {
     public ResponseEntity<String> setJsonUser(@RequestBody User user) {
         LOGGER.info(user.getName());
         return new ResponseEntity<String>(HttpStatus.OK);
-    }
+    } // не работает отображение, ошибка 415
 
 }
