@@ -43,16 +43,19 @@ public class LoginController {
 
     @RequestMapping(value = "/get-json-user", method = RequestMethod.GET, produces = "application/json")
     @ResponseBody
-    public User getJsonUser(@RequestParam("name") String name) {
+    public User getJsonUser(@PathVariable("name") String name, @PathVariable ("admin") boolean admin) {
         User user =  new User();
         user.setName(name);
+        user.setAdmin(admin);
         return user;
     }
 
     @RequestMapping(value = "/put-json-user", method = RequestMethod.POST, consumes = "application/json")
     public ResponseEntity<String> setJsonUser(@RequestBody User user) {
+        System.out.println(user.getName());
+
         LOGGER.info(user.getName());
-        return new ResponseEntity<String>(HttpStatus.OK);
+        return new ResponseEntity<>(HttpStatus.ACCEPTED);
     } // не работает отображение, ошибка 415
 
 }
