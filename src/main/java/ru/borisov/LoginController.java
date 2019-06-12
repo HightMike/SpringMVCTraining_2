@@ -7,31 +7,34 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import ru.borisov.objects.User;
 
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 @Controller
+@SessionAttributes("user")
 public class LoginController {
 
-    public static final Logger LOGGER = LoggerFactory.getLogger(LoginController.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(LoginController.class);
 
     @RequestMapping(value = "/", method = RequestMethod.GET)//RequestMethod.GET - все входящие запросы по этому урлу.
-    public ModelAndView main() {
-        return new ModelAndView("login", "user" ,new User());
-
+    public ModelAndView main(@ModelAttribute User user, HttpSession session) {
+        user.setName("InterestingName");
+        return new ModelAndView("login", "user" ,user);
     }
 
     @RequestMapping(value = "/check-user", method = RequestMethod.POST) // форма всегда передается в виде post запроса. Любые пост запросы со страницы check-user.
-    public String checkUser (@Valid @ModelAttribute("user") User user, BindingResult binding, Model model) {
+    public String checkUser (@Valid @ModelAttribute("user") User user, BindingResult binding, Model model, ModelMap modelMap) {
 
         if (binding.hasErrors()) {
             return "login";
         }
-        model.addAttribute("user", user);
+        //model.addAttribute("user", user);
         return "main";
     }
 
